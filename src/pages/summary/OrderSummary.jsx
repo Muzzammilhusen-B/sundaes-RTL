@@ -7,16 +7,14 @@ export default function OrderSummary() {
   const {totals, optionCounts} = useOrderDetails();
 
   const scoopAarray = Object.entries(optionCounts.scoops);
-  const scoopList = scoopAarray.map(([key, value]) => {
+  const scoopList = scoopAarray.map(([key, value]) => (
     <li key={key}>
       {value} {key}
-    </li>;
-  });
+    </li>
+  ));
 
   const toppingsAarray = Object.keys(optionCounts.toppings);
-  const toppingsList = toppingsAarray.map((key) => {
-    <li key={key}>{key}</li>;
-  });
+  const toppingsList = toppingsAarray.map((key) => <li key={key}>{key}</li>);
   return (
     <div>
       <h1>Order Summary</h1>

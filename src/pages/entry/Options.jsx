@@ -23,7 +23,7 @@ export default function Options({optionType}) {
     return <AlertBanner />;
   }
   const ItemComponent = optionType === "scoops" ? ScoopOptions : ToopingOption;
-  const tital = optionType[0].toUpperCase() + optionType.slice(1).toLowerCase();
+  const title = optionType[0].toUpperCase() + optionType.slice(1).toLowerCase();
   const optionItem = items.map((item) => (
     <ItemComponent
       key={item.name}
@@ -34,10 +34,10 @@ export default function Options({optionType}) {
 
   return (
     <>
-      <h2>{tital}</h2>
+      <h2>{title}</h2>
       <p>{formatCurrency(pricePerItem[optionType])} each</p>
       <p>
-        {tital} total: {formatCurrency(totals[optionType])}
+        {title} total: {formatCurrency(totals[optionType])}
       </p>
       <Row>{optionItem}</Row>
     </>
