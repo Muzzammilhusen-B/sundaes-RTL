@@ -3,7 +3,7 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 import Row from "react-bootstrap/Row";
 import ScoopOptions from "./ScoopOptions";
-import ToopingOption from "./ToopingOption";
+import ToppingOption from "./ToppingOption";
 import AlertBanner from "../common/AlertBanner";
 import {pricePerItem} from "../../constants";
 import {formatCurrency} from "../../utilities";
@@ -22,7 +22,7 @@ export default function Options({optionType}) {
   if (error) {
     return <AlertBanner />;
   }
-  const ItemComponent = optionType === "scoops" ? ScoopOptions : ToopingOption;
+  const ItemComponent = optionType === "scoops" ? ScoopOptions : ToppingOption;
   const title = optionType[0].toUpperCase() + optionType.slice(1).toLowerCase();
   const optionItem = items.map((item) => (
     <ItemComponent
