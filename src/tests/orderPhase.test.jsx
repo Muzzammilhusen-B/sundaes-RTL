@@ -137,7 +137,9 @@ test("Toppings header is not on summary page if no toppings ordered", async () =
   const scoopsHeading = screen.getByRole("heading", {name: "Scoops: $6.00"});
   expect(scoopsHeading).toBeInTheDocument();
 
-  const toppingsHeading = screen.queryByRole("heading", {name: /toppings/i});
+  const toppingsHeading = screen.queryByRole("heading", {
+    name: /toppings: $0.00/i,
+  });
   expect(toppingsHeading).not.toBeInTheDocument();
 });
 
@@ -172,12 +174,12 @@ test("Toppings header is not on summary page if toppings ordered, then removed",
   await user.click(orderSummaryButton);
 
   const scoopsHeading = screen.getByRole("heading", {
-    name: "Scoops total: $2.00",
+    name: "Scoops: $2.00",
   });
   expect(scoopsHeading).toBeInTheDocument();
 
-  const toppingsHeading = screen.getByRole("heading", {
-    name: /toppings/i,
+  const toppingsHeading = screen.queryByRole("heading", {
+    name: /toppings: $0.00/i,
   });
   expect(toppingsHeading).not.toBeInTheDocument();
 });
